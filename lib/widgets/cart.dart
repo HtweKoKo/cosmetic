@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:online_shop_app/constant/helpers/my_colors.dart';
 import 'package:online_shop_app/controllers/yourCartController.dart';
 import 'package:online_shop_app/pages/your_cart.dart';
@@ -21,7 +20,9 @@ class Cart extends StatelessWidget {
             child: Stack(clipBehavior: Clip.none, children: [
               IconButton(
                 onPressed: () {
-                  Get.to(()=>YourCart());
+                 Navigator.push(context
+                 , MaterialPageRoute(builder: (context)=>YourCart())
+                 );
                 },
                 icon: Icon(
                   Icons.shopping_cart_outlined,

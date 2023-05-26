@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:online_shop_app/constant/helpers/my_colors.dart';
 import 'package:online_shop_app/constant/helpers/my_text.dart';
@@ -35,8 +34,6 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget build(BuildContext context) {
     var counts = 1;
     var initialcount = 1;
-    
-    print(context.watch<YourCartController>().count);
 
     var cartItem = context.watch<YourCartController>().listItem;
     return Scaffold(
@@ -158,9 +155,11 @@ class _ProductDetailState extends State<ProductDetail> {
                                           BorderRadius.circular(10.r)),
                                 ),
                                 onPressed: () {
-                                  Get.to(() => BuyNow(
-                                        product: product!,
-                                      ));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              BuyNow(product: product!)));
                                 },
                                 child: Text(
                                   MyText.buy_now,
@@ -183,9 +182,10 @@ class _ProductDetailState extends State<ProductDetail> {
                           child: IconButton(
                             onPressed: () {
                               print(" button");
-
                               var data = cartItem.map((e) {
-                                return e.id.isEqual(product!.id ?? 0);
+                                if (e.id == product!.id) {
+                                  return true;
+                                }
                               }).toList();
 
                               var aa = data.contains(true);
@@ -196,7 +196,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               } else {
                                 context.read<YourCartController>().addCartData(
                                     CartData(
-                                        count:1,
+                                        count: 1,
                                         brand: product?.brand ?? "",
                                         name: product?.name ?? "",
                                         id: product!.id ?? 0,

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:get/get.dart';
 import 'package:online_shop_app/data/apiServices.dart';
 import 'package:online_shop_app/data/models/product.dart';
 import 'package:online_shop_app/util/api.dart';

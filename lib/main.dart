@@ -1,20 +1,19 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:online_shop_app/controllers/buyNowController.dart';
 import 'package:online_shop_app/controllers/getProductController.dart';
 import 'package:online_shop_app/controllers/netWorkCheckController.dart';
 import 'package:online_shop_app/controllers/yourCartController.dart';
 import 'package:online_shop_app/data/models/cartData.dart';
-import 'package:online_shop_app/pages/your_cart.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/Splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   await Hive.initFlutter();
   Hive.registerAdapter(CartDataAdapter());
 
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
            ChangeNotifierProvider<YourCartController>(
           create: (_) => YourCartController()),
         ],
-        child: GetMaterialApp(
+        child:MaterialApp(
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
         ),

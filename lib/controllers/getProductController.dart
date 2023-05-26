@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:online_shop_app/data/models/product.dart';
 import 'package:online_shop_app/data/repositary/getProductRepo.dart';
 

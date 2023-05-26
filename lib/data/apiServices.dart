@@ -25,8 +25,8 @@ class ApiService{
  Future<List<Product>> getProduct()async{
         var data = await dio.get(BASE_URL);
        var linkData = data.data as List;
-       var aa = linkData.map((e) => Product.fromJson(e)).toList();
-       return aa;
+       var products = linkData.map((e) => Product.fromJson(e)).toList();
+       return products;
   }
 
 }

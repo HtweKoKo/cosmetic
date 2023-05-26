@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "606439098901",
+    "project_id": "provider-cosmetic-29efa",
+    "storage_bucket": "provider-cosmetic-29efa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606439098901:android:276b3c969f8aec5cdcdc1c",
+        "android_client_info": {
+          "package_name": "com.hko.cosmetic_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlQ_RnsgRLJZnzbKUoVL-sYChuRwTFMpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

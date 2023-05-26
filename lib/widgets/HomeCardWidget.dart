@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:online_shop_app/constant/helpers/my_colors.dart';
 import 'package:online_shop_app/data/models/product.dart';
 import 'package:online_shop_app/pages/product_detail.dart';
@@ -16,7 +15,7 @@ class HomeCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.to(ProductDetail(product: product));
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetail(product: product)));
       },
       child: Container(
                   width: 330.w,

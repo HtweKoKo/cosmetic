@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:online_shop_app/constant/helpers/my_colors.dart';
 import 'package:online_shop_app/pages/about.dart';
 import 'package:online_shop_app/pages/contact_us.dart';
@@ -47,20 +46,18 @@ class MyDrawer extends StatelessWidget {
                     height: 15.h,
                   ),
                   _drawerBtn(
-                      Icons.home_outlined, "Home", () => Get.to(() => Home())),
+                      Icons.home_outlined, "Home", () => Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()))),
                   _drawerBtn(Icons.shopping_cart, "Your Cart", () {
-                    Get.to(() => YourCart());
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>YourCart()));
                   }),
                   _drawerBtn(Icons.history, "History", () {
-                    Get.to(() => HistoryCart());
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HistoryCart()));
                   }),
                   _drawerBtn(Icons.info_outline, "About", () {
-                    Get.back();
-                    Get.to(() => About());
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));
                   }),
                   _drawerBtn(Icons.people_outline, "Contact Us", () {
-                    Get.back();
-                    Get.to(() => ContactUs());
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactUs()));
                   }),
                 ],
               ),

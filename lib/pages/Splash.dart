@@ -2,7 +2,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:online_shop_app/controllers/netWorkCheckController.dart';
 import 'package:online_shop_app/controllers/yourCartController.dart';
 import 'package:online_shop_app/networkService/internetchecker.dart';
@@ -67,6 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void nextPage() async {
     await Future.delayed(Duration(seconds:3));
-    Get.off(() => Home());
+    Navigator.pushReplacement(context, 
+    MaterialPageRoute(builder: (context)=>Home())
+    );
   }
 }

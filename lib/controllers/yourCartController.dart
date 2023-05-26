@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:online_shop_app/data/models/cartData.dart';
 
@@ -35,7 +34,6 @@ class YourCartController extends ChangeNotifier {
 
   addCartData(CartData cartData) async {
     await cartBox.add(cartData);
-
     getCartData();
     notifyListeners();
   }
@@ -83,18 +81,21 @@ class YourCartController extends ChangeNotifier {
   }
 
   getSingleProduct(List<Product> productList, int id) {
-    var data = productList.where((m) => m.id!.isEqual(id)).toList();
+    var data = productList.where((m) {
+     if(m.id == id){
+      return true;
+     }
+     return false; 
+    } ).toList();
     notifyListeners();
 
     return data[0];
   }
 
   double get totalPrice => listItem.fold(0, ((previousValue, element) {
-   
         return previousValue + (double.parse(element.price) * element.count);
       }));
   int get totalItem => listItem.fold(0, ((previousValue, element) {
-   
-        return previousValue + element.count ;
+        return previousValue + element.count;
       }));
 }
